@@ -47,15 +47,6 @@ DECC FLOAT)""" % self.tableName
         except:
             self.db.rollback()
             print("Table Exists:%s" % self.tableName)
-
-    def check_SQL(self, title):
-        sql = "SELECT count( * ) FROM `%s` WHERE `TITLE` = '%s'" % (self.tableName, title)
-        self.cursor.execute(sql.lstrip())
-        result = self.cursor.fetchone()[0]
-        if result == 0:
-            return True
-        else:
-            return False
     
     def select_SQL(self, TIMESTAMP):
         sql = "SELECT * FROM `%s` WHERE `TIMESTAMP` = '%s'" % (self.tableName, TIMESTAMP)
