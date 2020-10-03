@@ -2,8 +2,9 @@ from module import NASASQL
 import requests
 import json
 import csv
+import satalist.csv
 
-class CRAWLER:
+class newcraw:
     """
     docstring
     """
@@ -24,7 +25,7 @@ class CRAWLER:
             print(i)
             nasadict = json.loads(text)
             print(nasadict)
-            satname = nasadict["info"]["satname"]        
+            satname = nasadict["info"]["satname"]
             for time_i in range(self.time_range):
                 timestamp = nasadict["positions"][time_i]["timestamp"]
                 satlatitude = nasadict["positions"][time_i]["satlatitude"]
@@ -35,3 +36,10 @@ class CRAWLER:
                 SQL.connect_SQL()
                 SQL.insert_SQL(timestamp,satname,satlatitude,satlongitude,sataltitude)
             
+
+
+
+
+def getName(id):
+    print(nasadict["info"][satname])
+    return nasadict["info"][satname]
